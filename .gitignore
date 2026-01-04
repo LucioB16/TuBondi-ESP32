@@ -1,0 +1,6 @@
+.pio/
+.vscode/
+.gemini/
+*.png
+*.webp
+!wiring_diagram_final.png

@@ -1,8 +1,21 @@
-# TuBondi Tracker - ESP32 Professional Edition 🚌💨
+# TuBondi Tracker · ESP32
 
-Este proyecto es un rastreador de colectivos en tiempo real para ESP32, utilizando una pantalla **ILI9341** de 2.8" o 3.2" con controlador táctil **XPT2046**. La interfaz tiene una estética de **Matriz LED** naranja clásica de las paradas inteligentes.
+**Próximos colectivos en una pantalla física de estilo LED.**
 
-## ✨ Características
+Un proyecto de **ESP32 + pantalla TFT ILI9341 + táctil XPT2046** para consultar arribos de Tu Bondi mediante Wi-Fi y mostrarlos como si fueran los carteles electrónicos de las paradas. La parada y la red se pueden configurar desde un portal local, sin recompilar para cada cambio.
+
+| Pantalla | Conectividad | Interacción |
+| :-- | :-- | :-- |
+| Arribos, distancia y reloj sincronizado. | Wi-Fi con portal de configuración. | Botones táctiles para actualizar y entrar a ajustes. |
+
+**Empezá por:** [pines y conexiones](#diagrama-de-conexiones-wiring) · [primer encendido](#configuración-inicial) · [PlatformIO](#instalación-con-platformio).
+
+> [!IMPORTANT]
+> **La tabla de pines es la referencia para cablear.** El [diagrama existente](wiring_diagram_final.png) sirve como orientación visual, pero contrastá siempre cada conexión con la configuración real de `platformio.ini` y el código.
+
+**Entorno del proyecto:** PlatformIO, framework Arduino y placa `nodemcu-32s`. El archivo [`platformio.ini`](platformio.ini) fija inicialmente `COM3` como puerto de carga/monitor; ajustalo al puerto de tu equipo.
+
+## Características
 
 - **Visualización en Tiempo Real**: Muestra los próximos arribos, distancias y tiempos de espera.
 - **Reloj NTP**: Hora sincronizada automáticamente vía internet (GMT-3 Argentina).
@@ -12,10 +25,10 @@ Este proyecto es un rastreador de colectivos en tiempo real para ESP32, utilizan
 
 ---
 
-## 🔌 Diagrama de Conexiones (Wiring)
+## Diagrama de conexiones (wiring)
 
 > [!IMPORTANT]
-> **La tabla de abajo es la "Verdad Absoluta"**. Las imágenes generadas por IA pueden tener errores en las etiquetas de los pines. Usá la tabla para hacer tus conexiones.
+> **La tabla de pines y `platformio.ini` son la referencia principal.** Usá el diagrama como orientación, no como única fuente para el cableado.
 
 ### Tabla de Pines (Source of Truth)
 
@@ -37,7 +50,7 @@ Este proyecto es un rastreador de colectivos en tiempo real para ESP32, utilizan
 
 ---
 
-### Guía Visual (Esquema Técnico)
+### Guía visual (esquema técnico)
 
 Para una referencia rápida del ruteo, podés usar este diagrama generado con **Mermaid CLI**. Representa los dos buses SPI (VSPI para pantalla y HSPI para táctil).
 
@@ -48,7 +61,7 @@ Para una referencia rápida del ruteo, podés usar este diagrama generado con **
 
 ---
 
-## 🛠️ Configuración Inicial
+## Configuración inicial
 
 1. **Primer Inicio**: La placa intentará conectarse. Si no hay WiFi configurado o falla, se pondrá en modo **Portal**.
 2. **Conexión Local**: Conectate desde tu celular a la red WiFi llamada `BondiTracker-Setup`.
@@ -58,7 +71,7 @@ Para una referencia rápida del ruteo, podés usar este diagrama generado con **
    - Ingresa el **Stop Code** (ej. `A911`).
    - Guarda los cambios. El dispositivo se reiniciará solo.
 
-## 🖱️ Controles de UI
+## Controles de interfaz
 
 - **Botón REFRESH (Naranja)**: Actualiza los arribos manualmente en cualquier momento.
 - **Icono Engranaje (Gris)**: Fuerza al dispositivo a entrar en modo configuración. Sugerido para cuando quieras cambiar la parada o la red WiFi.
@@ -66,7 +79,7 @@ Para una referencia rápida del ruteo, podés usar este diagrama generado con **
 
 ---
 
-## 🚀 Instalación (PlatformIO)
+## Instalación con PlatformIO
 
 Asegúrate de tener instaladas las siguientes librerías en tu `platformio.ini`:
 
@@ -79,3 +92,7 @@ lib_deps =
 ```
 
 *Desarrollado para la comunidad de entusiastas de ESP32 y transporte público.* 🚍✨
+
+## Licencia
+
+No se encontró un archivo de licencia en el repositorio.
